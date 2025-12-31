@@ -6,4 +6,6 @@ var postgres = builder
 
 var db = postgres.AddDatabase("db-logical-fitness");
 
+
+
 builder.Build().Run();
