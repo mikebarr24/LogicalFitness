@@ -1,3 +1,6 @@
+using System.Text.Json.Serialization;
+using LogicalFitness.Application.Dtos;
+using LogicalFitness.Domain.Models;
 using LogicalFitness.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,6 +23,25 @@ if (app.Environment.IsDevelopment())
 {
   app.MapOpenApi();
 }
+
+app.MapPost("/api/users/add", async (UserDto userDto, AppDbContext db, CancellationToken cancellationToken, ILogger logger) =>
+{
+  try
+  {
+    var user = userDto.MapUserDtoToUser();
+
+    await db.AddAsync(user, cancellationToken);
+    await db.SaveChangesAsync(cancellationToken);
+
+    return Results.Ok(user.Id);
+  }
+  catch (Exception ex)
+  {
+    logger.LogError(ex, "Failed to create user: {Email}", userDto?.Email);
+    return Results.Problem("An error occurred when creating user.", statusCode: 500);
+    throw;
+  }
+});
 
 app.UseHttpsRedirection();
 
