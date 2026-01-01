@@ -5,6 +5,7 @@
     <Project Path="src/apps/LogicalFitness.AppHost/LogicalFitness.AppHost.csproj" />
   </Folder>
   <Folder Name="/src/libs/">
+    <Project Path="src/libs/LogicalFitness.Application/LogicalFitness.Application.csproj" />
     <Project Path="src/libs/LogicalFitness.Domain/LogicalFitness.Domain.csproj" />
     <Project Path="src/libs/LogicalFitness.Infrastructure/LogicalFitness.Infrastructure.csproj" />
     <Project Path="src/libs/LogicalFitness.ServiceDefaults/LogicalFitness.ServiceDefaults.csproj" />
