@@ -10,7 +10,7 @@ builder.Services.AddOpenApi();
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
   var connectionString = builder.Configuration.GetConnectionString("db-logical-fitness");
-  options.UseNpgsql(connectionString);
+  options.UseNpgsql(connectionString, b => b.MigrationsAssembly("LogicalFitness.Api"));
 });
 
 var app = builder.Build();
