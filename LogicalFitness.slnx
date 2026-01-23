@@ -11,7 +11,7 @@
     <Project Path="src/libs/LogicalFitness.ServiceDefaults/LogicalFitness.ServiceDefaults.csproj" />
   </Folder>
   <Folder Name="/tests/">
+    <Project Path="tests/LogicalFitness.Architecture.Tests/LogicalFitness.Architecture.Tests.csproj" />
   <Project Path="tests/LogicalFitness.Tests/LogicalFitness.Tests.csproj" />
-  
   </Folder>
 </Solution>

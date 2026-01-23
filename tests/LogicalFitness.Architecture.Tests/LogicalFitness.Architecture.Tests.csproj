@@ -9,15 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.Testing" />
+    <PackageReference Include="NetArchTest.Rules" />
     <PackageReference Include="TUnit" />
   </ItemGroup>
 
   <ItemGroup>
-    <Using Include="System.Net" />
-    <Using Include="Microsoft.Extensions.DependencyInjection" />
-    <Using Include="Aspire.Hosting.ApplicationModel" />
-    <Using Include="Aspire.Hosting.Testing" />
+    <ProjectReference Include="../../src/libs/LogicalFitness.Domain/LogicalFitness.Domain.csproj" />
   </ItemGroup>
 
 </Project>
