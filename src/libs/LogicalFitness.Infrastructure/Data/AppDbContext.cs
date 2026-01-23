@@ -1,9 +1,10 @@
+using LogicalFitness.Application.Abstractions;
 using LogicalFitness.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace LogicalFitness.Infrastructure.Data;
 
-public class AppDbContext : DbContext
+public class AppDbContext : DbContext, IAppDbContext
 {
   public AppDbContext(DbContextOptions options) : base(options)
   {

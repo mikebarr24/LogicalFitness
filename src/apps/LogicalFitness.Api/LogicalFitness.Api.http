@@ -1,19 +1,15 @@
-@LogicalFitness.Api_HostAddress = http://localhost:5176
-
-POST  {{LogicalFitness.Api_HostAddress}}/api/users/add
+@LogicalFitnessApi_HostAddress = http://localhost:5176
+POST  {{LogicalFitnessApi_HostAddress}}/api/users/add
 Accept: application/json
 Content-Type: application/json
 
 {
-  "Id": "00000000-0000-0000-0000-000000000004",
-  "Forename": "Test",
-  "Surname": "User",
-  "Email": "tes4.user@example.com",
-  "DateOfBirth": "1990-01-01",
-  "HeigthCm": 180,
-  "WeightKg": 75.5,
-  "CreatedAt": "2026-01-01T00:00:00Z",
-  "UpdatedAt": "2026-01-01T00:00:00Z",
+  "Forename": "Test-{{$randomInt 1 1000}}",
+  "Surname": "User-{{$randomInt 1 1000}}",
+  "Email": "test-{{$guid}}@example.com",
+  "DateOfBirth": "1900-09-12",
+  "HeightCm": "{{$randomInt 140 195}}",
+  "WeightKg": "{{$randomInt 40 150}}",
   "IsActive": true
 }
 

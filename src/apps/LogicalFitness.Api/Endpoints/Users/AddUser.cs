@@ -1,31 +1,23 @@
-using System;
+using FluentValidation;
 using LogicalFitness.Api.Abstractions;
-using LogicalFitness.Application.Dtos;
-using LogicalFitness.Infrastructure.Data;
+using LogicalFitness.Application.Commands;
+using MediatR;
 
 namespace LogicalFitness.Api.Endpoints;
 
-public class AddUser(ILogger<AddUser> logger) : IEndpoint
+public class AddUser : IEndpoint
 {
   public void MapEndpoint(IEndpointRouteBuilder app)
   {
-    app.MapPost("/api/users/add", async (UserDto userDto, AppDbContext db, CancellationToken cancellationToken) =>
+    app.MapPost("/api/users/add", async (
+      AddUserCommand command,
+      ISender sender,
+      CancellationToken cancellationToken
+    ) =>
     {
-      try
-      {
-        var user = userDto.MapUserDtoToUser();
-
-        await db.AddAsync(user, cancellationToken);
-        await db.SaveChangesAsync(cancellationToken);
-
-        return Results.Ok(user.Id);
-      }
-      catch (Exception ex)
-      {
-        logger.LogError(ex, "Failed to create user: {Email}", userDto?.Email);
-        return Results.Problem("An error occurred when creating user.", statusCode: 500);
-        throw;
-      }
-    });
+      await sender.Send(command, cancellationToken);
+      return Results.Ok();
+    }
+    );
   }
 }
