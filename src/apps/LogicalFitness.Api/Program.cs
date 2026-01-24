@@ -1,8 +1,7 @@
 using System.Reflection;
-using System.Text.Json.Serialization;
 using LogicalFitness.Api.Extensions;
-using LogicalFitness.Application.Dtos;
-using LogicalFitness.Domain.Models;
+using LogicalFitness.Application.Abstractions;
+using LogicalFitness.Application.Commands.Users;
 using LogicalFitness.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,10 +16,23 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
   var connectionString = builder.Configuration.GetConnectionString("db-logical-fitness");
-  options.UseNpgsql(connectionString, b => b.MigrationsAssembly("LogicalFitness.Api"));
+  options.UseNpgsql(connectionString, options => options.MigrationsAssembly("LogicalFitness.Api"));
 });
 
 builder.Services.AddEndpoints(Assembly.GetExecutingAssembly());
+builder.Services.AddValidators();
+builder.Services.AddServices();
+
+builder.Services.AddMediatR(cfg =>
+{
+  cfg.LicenseKey = "mediatr-key";
+  cfg.RegisterServicesFromAssemblies(
+    typeof(Program).Assembly,
+    typeof(AddUserCommandHandler).Assembly
+);
+});
+
+builder.Services.AddScoped<IAppDbContext, AppDbContext>();
 
 var app = builder.Build();
 

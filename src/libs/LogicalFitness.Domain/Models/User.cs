@@ -15,14 +15,9 @@ public class User(
     DateTimeOffset updatedAt,
     bool isActive)
 {
-  [Key]
-  public Guid Id { get; init; } = id;
-  [Required]
+  public Guid Id { get; set; } = id;
   public string Forename { get; set; } = forename;
-  [Required]
   public string Surname { get; set; } = surname;
-  [EmailAddress]
-  [Required]
   public string Email { get; set; } = email;
   public DateOnly? DateOfBirth { get; set; } = dateOfBirth;
   public int? HeightCm { get; set; } = heightCm;

@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.Testing" Version="13.1.0" />
-    <PackageReference Include="TUnit" Version="1.7.7" />
+    <PackageReference Include="Aspire.Hosting.Testing" />
+    <PackageReference Include="TUnit" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,6 +18,14 @@
     <Using Include="Microsoft.Extensions.DependencyInjection" />
     <Using Include="Aspire.Hosting.ApplicationModel" />
     <Using Include="Aspire.Hosting.Testing" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../../src/libs/LogicalFitness.Domain/LogicalFitness.Domain.csproj" />
   </ItemGroup>
 
 </Project>

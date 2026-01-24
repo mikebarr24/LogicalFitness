@@ -11,8 +11,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Configuration/" />
+    <Folder Include="Abstractions/" />
+    <Folder Include="Commands/Common/" />
     <Folder Include="Dtos/" />
+    <Folder Include="Services/" />
+    <Folder Include="Validators/" />
+    <Folder Include="Validators/Users/" />
+  </ItemGroup>
+
+  <ItemGroup>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" />
+    <PackageReference Include="MediatR" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
   </ItemGroup>
 
 </Project>
