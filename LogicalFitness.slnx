@@ -15,5 +15,7 @@
     <Project Path="tests/architecture/LogicalFitness.Architecture.Tests/LogicalFitness.Architecture.Tests.csproj" />
   </Folder>
   <Folder Name="/tests/integration/" />
-  <Folder Name="/tests/unit/" />
+  <Folder Name="/tests/unit/">
+    <Project Path="tests/unit/LogicalFitness.Domain.Tests/LogicalFitness.Domain.Tests.csproj" />
+  </Folder>
 </Solution>
