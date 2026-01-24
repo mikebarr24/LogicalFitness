@@ -10,8 +10,10 @@
     <Project Path="src/libs/LogicalFitness.Infrastructure/LogicalFitness.Infrastructure.csproj" />
     <Project Path="src/libs/LogicalFitness.ServiceDefaults/LogicalFitness.ServiceDefaults.csproj" />
   </Folder>
-  <Folder Name="/tests/">
-    <Project Path="tests/LogicalFitness.Architecture.Tests/LogicalFitness.Architecture.Tests.csproj" />
-  <Project Path="tests/LogicalFitness.Tests/LogicalFitness.Tests.csproj" />
+  <Folder Name="/tests/" />
+  <Folder Name="/tests/architecture/">
+    <Project Path="tests/architecture/LogicalFitness.Architecture.Tests/LogicalFitness.Architecture.Tests.csproj" />
   </Folder>
+  <Folder Name="/tests/integration/" />
+  <Folder Name="/tests/unit/" />
 </Solution>

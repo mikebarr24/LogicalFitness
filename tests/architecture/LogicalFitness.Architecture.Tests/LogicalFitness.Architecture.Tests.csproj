@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../../src/libs/LogicalFitness.Domain/LogicalFitness.Domain.csproj" />
+    <ProjectReference Include="../../../src/libs/LogicalFitness.Domain/LogicalFitness.Domain.csproj" />
   </ItemGroup>
 
 </Project>
