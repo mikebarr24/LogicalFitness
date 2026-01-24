@@ -4,10 +4,10 @@ namespace LogicalFitness.Architecture.Tests;
 
 public class DomainArchitectureTests
 {
-  private const string DomainNamespace = "Domain";
-  private const string ApplicationNamespace = "Application";
-  private const string InfrastructureNamespace = "Infrastructure";
-  private const string ApiNamespace = "Api";
+  private const string DomainNamespace = "LogicalFitness.Domain";
+  private const string ApplicationNamespace = "LogicalFitness.Application";
+  private const string InfrastructureNamespace = "LogicalFitness.Infrastructure";
+  private const string ApiNamespace = "LogicalFitness.Api";
 
   [Test]
   public async Task Domain_Should_Not_HaveDependencyOnOtherProjects()
@@ -26,7 +26,7 @@ public class DomainArchitectureTests
     var result = Types
       .InAssembly(assembly)
       .ShouldNot()
-      .HaveDependencyOnAll(otherProjects)
+      .HaveDependencyOnAny(otherProjects)
       .GetResult();
 
     //Assert
